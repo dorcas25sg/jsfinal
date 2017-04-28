@@ -1,0 +1,32 @@
+grant_title,id,total_amount,group,start_year
+"ABC Waters Site, Parks, Skyrise Greenery ",1,470,low,Amenities
+Cycling Path/Park Connector,2,500,low,Amenities
+Hawker Center,3,860,low,Amenities
+Certified Healthier Eatery,4,770,low,Amenities
+Retail Pharmacy,5,980,low,Amenities
+"Sports field, Gym, Sports Facilities, SAFRA",6,570,low,Amenities
+Wireless@SG Hotspot,7,350,low,Amenities
+Supermarket,8,1780,medium,Amenities
+Community Centers and Residents' Committee,9,1720,medium,Community and Culture
+Community-in-Bloom,10,2010,medium,Community and Culture
+"Museums, Historical Sites",11,1290,medium,Community and Culture
+"People's Association HQ/Facilities, Community Development Council",12,2140,medium,Community and Culture
+Library,13,2940,medium,Community and Culture
+"WDA Service points, Public & Private Further Education/Training ",14,1340,medium,Socio-Economic Support
+"After-Death Facilities, Funeral Parlour",15,1810,medium,Socio-Economic Support
+CPF Service Center,16,2490,medium,Socio-Economic Support
+Housing Development Board Branch,17,2670,medium,Socio-Economic Support
+Silver Inforcomm,18,3580,high,Socio-Economic Support
+Family Services and Voluntary Welfare Organizations,19,6030,high,Socio-Economic Support
+Women Health Screening Center ,20,2180,medium,Health and Environment
+Subsidized CHAS Clinics,21,3390,high,Health and Environment
+Not being in dengue hotspots,22,3360,high,Health and Environment
+Disability Services,23,5040,high,Health and Environment
+Eldercare Services,24,7220,high,Health and Environment
+Not being in Malaria Receptive Areas,25,4790,high,Health and Environment
+National Environment Agency Offices,26,2550,medium,Health and Environment
+Quit Centers,27,2550,medium,Health and Environment
+Fire posts & stations,28,2360,medium,Safety and Security
+Police Establishments,29,3240,high,Safety and Security
+Crime rate,30,6980,high,Safety and Security
+Red-light Cameras,31,5320,high,Safety and Security
