@@ -25,13 +25,14 @@ $(".selected").hide();
 //};
 
 // If all is checked, select all factors
-$('#all').change(function() {
-  if($('#all').is(":checked")){
+$('#all2').change(function() {
+  console.log('ALL changed');
+  if($('#all2').is(":checked")){
     $('#clinic').prop('checked', true);
     $('#libr').prop('checked', true);
     $('#eldc').prop('checked', true);
   }
-  if(!$('#all').is(":checked")){
+  if(!$('#all2').is(":checked")){
     $('#clinic').prop('checked', false);
     $('#libr').prop('checked', false);
     $('#eldc').prop('checked', false);
@@ -125,7 +126,7 @@ var districts = cartodb.createLayer(map, {
       layer.getSubLayer(1).setCartoCSS('#library'+ resetcss);
       layer.getSubLayer(2).setCartoCSS('#eldercare'+ resetcss);
 
-      defaultZoom();
+      //defaultZoom();
 
       $(".legend").hide();
       $("#restart").hide();

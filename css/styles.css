@@ -101,8 +101,8 @@ a img{
 
 
 .android-logo-image {
-  height: 28px;
-  width: 140px;
+  height: 100px;
+  width: 700px;
 }
 
 
@@ -211,7 +211,7 @@ a img{
 
 .android-be-together-section {
   position: relative;
-  height: 800px;
+  height: 91vh;;
   width: auto;
   background-color: #f3f3f3;
   background: url('images/skyline.jpg') center 30% no-repeat;
