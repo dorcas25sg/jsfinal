@@ -24,9 +24,26 @@ $(".selected").hide();
 //    map.setView([1.3521, 103.8198], 12);
 //};
 
+//if user does not select colour, this is the default
+var defaultColor = "#2799ff";
+
+var swatches = document.getElementById('swatches');
+//var layer = document.getElementById('layer');
+var colors = [
+    '#ffffcc',
+    '#a1dab4',
+    '#41b6c4',
+    '#2c7fb8',
+    '#253494',
+    '#fed976',
+    '#feb24c',
+    '#fd8d3c',
+    '#f03b20',
+    '#bd0026'
+];
+
 // If all is checked, select all factors
 $('#all2').change(function() {
-  console.log('ALL changed');
   if($('#all2').is(":checked")){
     $('#clinic').prop('checked', true);
     $('#libr').prop('checked', true);
@@ -52,9 +69,8 @@ var cartoUserName = 'dorcas25sg';
 var myLayer;
 
 var resetcss = "{marker-fill-opacity: 0; marker-line-opacity: 0; marker-placement: point; marker-type: ellipse; marker-allow-overlap: true;}";
-var checkedcss = "{marker-fill: #2799ff; marker-width: 55; marker-fill-opacity:";
+var checkedcss;
 var checkedcss2 = "; marker-line-width: 0; marker-allow-overlap: true;}";
-//var checkedcss3 = "{marker-fill: #2799ff; marker-width: 100; marker-fill-opacity: 0.05; marker-line-width: 0; marker-allow-overlap: true;}";
 
 var districts = cartodb.createLayer(map, {
   user_name: cartoUserName,
@@ -76,6 +92,16 @@ var districts = cartodb.createLayer(map, {
   ]
 }).addTo(map)
   .on('done', function(layer) {
+
+    colors.forEach(function(color) {
+      var swatch = document.createElement('button');
+      swatch.style.backgroundColor = color;
+      swatch.addEventListener('click', function() {
+        defaultColor = color; //if user selects colour, it will change accordingly
+      });
+      swatches.appendChild(swatch);
+    });
+
     layer.on('featureClick',function(e, latlng, pos, data) {
       console.log(data);
     });
@@ -88,10 +114,13 @@ var districts = cartodb.createLayer(map, {
       $(".toSelect").hide();
       $(".checkboxes").hide();
       $("#submit").hide();
+      $(".map-overlay").hide();
 
       $('#submit').prop('disabled', true);
       $('#redo').prop('disabled', false);
       $('.checkbox').prop('disabled', true);
+
+      checkedcss = "{marker-fill:"+defaultColor+"; marker-width: 55; marker-fill-opacity:";
 
       // state what was being selected on sidebar
       if ($('#clinic').is(":checked")) {
@@ -128,12 +157,12 @@ var districts = cartodb.createLayer(map, {
 
       //defaultZoom();
 
-      $(".legend").hide();
       $("#restart").hide();
       $(".selected").hide();
       $(".toSelect").show();
       $(".checkboxes").show();
       $("#submit").show();
+      $(".map-overlay").show();
 
       $('.listfactors').empty();
 
