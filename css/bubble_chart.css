@@ -2,11 +2,6 @@ a, a:visited, a:active {
   color: #444;
 }
 
-/* .container {
-  max-width: 900px;
-  margin: auto;
-} */
-
 .button {
   min-width: 130px;
   padding: 4px 5px;

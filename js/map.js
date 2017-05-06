@@ -6,6 +6,7 @@ var map = L.map('map', {
   scrollWheelZoom: false
 });
 
+// The pretty white basemap
 var Stamen_TonerLite = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
   attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
   subdomains: 'abcd',
@@ -14,21 +15,45 @@ var Stamen_TonerLite = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolab
   ext: 'png'
 }).addTo(map);
 
+// The pretty black basemap
+var Stamen_TonerLite2 = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png', {
+  attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+  subdomains: 'abcd',
+  minZoom: 0,
+  maxZoom: 20,
+  ext: 'png'
+}).addTo(map);
+
+// Swipe to change basemaps
+var range = document.getElementById('range');
+
+function clip() {
+  var nw = map.containerPointToLayerPoint([0, 0]),
+      se = map.containerPointToLayerPoint(map.getSize()),
+      clipX = nw.x + (se.x - nw.x) * range.value;
+
+  Stamen_TonerLite2.getContainer().style.clip = 'rect(' + [nw.y, clipX, se.y, nw.x].join('px,') + 'px)';
+}
+
+range['oninput' in range ? 'oninput' : 'onchange'] = clip;
+map.on('move', clip);
+clip();
+
+
 // Initially, we want these hidden
-$(".legend").hide();
 $("#restart").hide();
 $(".selected").hide();
 
 // Default Zoom
-//var defaultZoom = function(){
-//    map.setView([1.3521, 103.8198], 12);
-//};
+var defaultZoom = function(){
+    map.setView([1.3521, 103.8198], 12);
+};
 
-//if user does not select colour, this is the default
+// If user does not select color, this is the default blue
 var defaultColor = "#2799ff";
 
+// The colours available to choose from
 var swatches = document.getElementById('swatches');
-//var layer = document.getElementById('layer');
 var colors = [
     '#ffffcc',
     '#a1dab4',
@@ -56,7 +81,7 @@ $('#all2').change(function() {
   }
 });
 
-// activate submit button only if at least one checkbox is selected
+// Activate submit button only if at least one checkbox is selected
 var checkingBoxes = $('.checkbox');
 checkingBoxes.change(function () {
     $('#submit').prop('disabled', checkingBoxes.filter(':checked').length < 1);
@@ -66,12 +91,12 @@ $('.checkbox').change();
 
 var cartoUserName = 'dorcas25sg';
 
-var myLayer;
-
+// Strings for setting CSS later
 var resetcss = "{marker-fill-opacity: 0; marker-line-opacity: 0; marker-placement: point; marker-type: ellipse; marker-allow-overlap: true;}";
 var checkedcss;
 var checkedcss2 = "; marker-line-width: 0; marker-allow-overlap: true;}";
 
+// Adding Carto Layers
 var districts = cartodb.createLayer(map, {
   user_name: cartoUserName,
   type: 'cartodb',
@@ -97,17 +122,14 @@ var districts = cartodb.createLayer(map, {
       var swatch = document.createElement('button');
       swatch.style.backgroundColor = color;
       swatch.addEventListener('click', function() {
-        defaultColor = color; //if user selects colour, it will change accordingly
+        // If user does not select colour, defaultColor remains the original blue
+        // If user selects color, defaultColor will change accordingly
+        defaultColor = color;
       });
       swatches.appendChild(swatch);
     });
 
-    layer.on('featureClick',function(e, latlng, pos, data) {
-      console.log(data);
-    });
-    // Add button click events
-
-    //when submit is clicked...
+    // When submit is clicked...
     $("#submit").click(function() {
       $("#restart").show();
       $(".selected").show();
@@ -120,9 +142,10 @@ var districts = cartodb.createLayer(map, {
       $('#redo').prop('disabled', false);
       $('.checkbox').prop('disabled', true);
 
+      // Set Carto CSS of chosen factors accordingly
       checkedcss = "{marker-fill:"+defaultColor+"; marker-width: 55; marker-fill-opacity:";
 
-      // state what was being selected on sidebar
+      // state what was being selected on sidebar and edit opacity according to drop down
       if ($('#clinic').is(":checked")) {
       var nameit = $("#impt option:selected").html();
       $('.listfactors').append("Clinic (" +nameit+ " importance)"+"<br>");
@@ -155,7 +178,7 @@ var districts = cartodb.createLayer(map, {
       layer.getSubLayer(1).setCartoCSS('#library'+ resetcss);
       layer.getSubLayer(2).setCartoCSS('#eldercare'+ resetcss);
 
-      //defaultZoom();
+      defaultZoom(); // set map to orginal lat, long, zoom
 
       $("#restart").hide();
       $(".selected").hide();
@@ -174,5 +197,5 @@ var districts = cartodb.createLayer(map, {
     });
 
   }).on('error', function() {
-    console.log("some error occurred");
+    console.log("Error occurred!");
 });
