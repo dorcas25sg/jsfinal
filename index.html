@@ -15,299 +15,220 @@
   See the License for the specific language governing permissions and
   limitations under the License
 -->
-
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A portfolio template that uses Material Design Lite.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>Singapore's Elderly Riskscape</title>
+    <title>Dorcas Chang</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.grey-pink.min.css" />
+    <link rel="stylesheet" href="styles.css" />
 
-    <link rel="stylesheet" href="http://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/themes/css/cartodb.css" />
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.2.3/leaflet.draw.css" />
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
-    <link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="http://code.getmdl.io/1.3.0/material.min.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/bubble_chart.css">
-    <link href="//cdn.muicss.com/mui-0.9.16/css/mui.min.css" rel="stylesheet" type="text/css" />
 
-  </head>
-  <body>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-
-      <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
-        <div class="mdl-layout__header-row">
-          <span class="android-title mdl-layout-title">
-            <img class="android-logo-image" src="images/android-logo.png">
-          </span>
-          <!-- Add spacer, to align navigation to the right in desktop -->
-          <div class="android-header-spacer mdl-layout-spacer"></div>
-          <!-- Navigation -->
-          <div class="android-navigation-container">
-            <nav class="android-navigation mdl-navigation">
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" id="show-dialog">Resources</a>
-
-                <dialog class="mdl-dialog">
-                  <h4 class="mdl-dialog__title">Resources used in this project</h4>
-                  <div class="mdl-dialog__content">
-                    <ul>
-                      <li>Template: <a href="http://getmdl.io/Materials"> Materials Design Lite </a></li>
-                      <li>Population Pyramid edited based on <a href="http://github.com/wpoely86/D3.js-Diverging-Stacked-Bar-Chart">wpoely86's</a> work </li>
-                      <li>Bubble Chart edited based on <a href="http://vallandingham.me/bubble_charts_in_js.html">Jim Vallandingham's</a> work</li>
-                      <li>Free Images from <a href="http://pixabay.com/">Pixabay</a></li>
-                      <li> Map and Data hosted on <a href="http://carto.com/">Carto</a></li>
-                    </ul>
-                    <p>
-                      Contact <a href="mailto:dory@design.upenn.edu">author</a> for more information
-                    </p>
-                  </div>
-                  <div class="mdl-dialog__actions">
-                    <button type="button" class="mdl-button close">Close</button>
-                  </div>
-                </dialog>
-
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="http://github.com/dorcas25sg/jsfinal" target="_blank">Source Code</a>
+        <header class="mdl-layout__header mdl-layout__header--waterfall portfolio-header">
+            <div class="mdl-layout__header-row portfolio-logo-row">
+                <span class="mdl-layout__title">
+                    <div class="portfolio-logo"></div>
+                    <span class="mdl-layout__title">Dorcas Chang's Portfolio</span>
+                </span>
+            </div>
+            <div class="mdl-layout__header-row portfolio-navigation-row mdl-layout--large-screen-only">
+                <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
+                    <a class="mdl-navigation__link is-active" href="index.html">Portfolio</a>
+                    <a class="mdl-navigation__link" href="blog.html">Blog</a>
+                    <a class="mdl-navigation__link" href="about.html">About</a>
+                    <a class="mdl-navigation__link" href="https://www.linkedin.com/in/dorcaschang/" target="_blank">LinkedIn</a>
+                </nav>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer mdl-layout--small-screen-only">
+            <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
+                <a class="mdl-navigation__link is-active" href="index.html">Portfolio</a>
+                <a class="mdl-navigation__link" href="blog.html">Blog</a>
+                <a class="mdl-navigation__link" href="about.html">About</a>
+                <a class="mdl-navigation__link" href="contact.html">Contact</a>
             </nav>
-          </div>
-          <span class="android-mobile-title mdl-layout-title">
-            <img class="android-logo-image" src="images/android-logo.png">
-          </span>
         </div>
-      </div>
-
-      <div class="android-content mdl-layout__content">
-          <a name="top"></a>
-        <div class="android-be-together-section mdl-typography--text-center">
-          <div class="logo-font android-slogan">Elderly Riskscape in Singapore</div>
-          <div class="logo-font android-sub-slogan">...A Final Project <i>for</i> CPLN-692 / MUSA-611 <i>by</i> Dorcas Chang...</div>
-
-          <a href="#screens">
-            <button class="android-fab mdl-button mdl-button--colored mdl-js-button mdl-button--fab mdl-js-ripple-effect">
-              <i class="material-icons">expand_more</i>
-            </button>
-          </a>
-        </div>
-
-        <div class="android-screen-section">
-          <a name="screens"></a>
-            <div class="mdl-cell mdl-cell--12-col">
-
-            <div id="toolbar2">
-              <div class="mdl-typography--display-1-color-contrast">Population Pyramid</div>
-              <br>
-              <a href="#" id="data/1990data.csv" class="button">1990</a>
-              <a href="#" id="data/2000data.csv" class="button">2000</a>
-              <a href="#" id="data/2010data.csv" class="button">2010</a>
-              <a href="#" id="data/2016data.csv" class="button active">2016</a>
-            </div>
-            <div id="figurebar" style="margin-bottom: 10px;">
-              <div style="float:right">
-                <div class="mdl-typography--font-light mdl-typography--display-1-color-contrast">An Aging Nation...</div>
-                <br>
-                <p class="mdl-typography--headline mdl-typography--font-thin">
-                  Toggle the population pyramid*. What do you notice?
-                </p>
-                <ul class="mdl-typography--headline mdl-typography--font-thin">
-                  <li>The bulk of the population moves upwards</li>
-                  <li>A <b>widening top</b> as people live longer</li>
-                  <li>A <b>narrowing bottom</b> as people have fewer children</li>
-                </ul>
-                <p class="mdl-typography--headline mdl-typography--font-thin">
-                  The proportion of elderly in Singapore (aged 65 and above) <br>
-                  has doubled from <b>6% in 1990</b> to <b>13% in 2015</b> and is expected <br>
-                  to continue rising to <b>24% in 2030</b>**.
-                </p>
-                <p class="mdl-typography--headline mdl-typography--font-thin">
-                  Planning and infrastructure needs to keep up with the changes!
-                </p>
-                <p class="android-link mdl-typography--font-light">
-                * Population data taken from the Department of Statistics, Singapore
-                </p>
-                <p class="android-link mdl-typography--font-light">
-                ** Based on a report by the Ministry of Health Aging Planning Office in 2015
-                </p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-
-        <div class="android-wear-section">
-          <div class="android-wear-band">
-            <div class="android-wear-band-text">
-              <div class="mdl-typography--display-2 mdl-typography--font-thin">As A Response...</div>
-              <p class="mdl-typography--headline mdl-typography--font-thin">
-                Singapore has initiated a range of programs and infrastructures as part of the ‘aging in place’ approach to promote growing old within your home, neighborhood, and community, rather than overloading existing nursing facilities and tightening land availability.
-              </p>
-              <p>
-                <a class="mdl-typography--font-regular mdl-typography--text-uppercase android-alt-link" href="http://www.moh.gov.sg/content/moh_web/home/pressRoom/pressRoomItemRelease/2015/-3billion-action-plan-to-enable-singaporeans-to-age-successfully.html" target="_blank">
-                  Read more about Active Aging&nbsp;<i class="material-icons">chevron_right</i>
-                </a>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="android-customized-section">
-          <div class="android-customized-section-text">
-            <div class="mdl-typography--font-light mdl-typography--display-1-color-contrast">How Do We Plan For That?</div>
-            <p class="mdl-typography--font-light">
-              Ensuring elderly welfare and quality of life should be done in a holistic manner.
-              <br>
-              Broadly, there are 5 categories that encompass various features and infrastructures, each with their own importance.
-            </p>
-            <p class="android-link mdl-typography--font-light">
-              Do you know which factors are considered most important?
-            </p>
-          </div>
-          <div class="android-customized-section-image"></div>
-        </div>
-
-        <div class="android-screen-section2 mdl-typography--text-center">
-          <a name="screens"></a>
-          <div class="mdl-typography--display-1-color-contrast">Here's What Planners* Think</div>
-          <p class="mdl-typography--font-light">
-            Roll over each bubble to get an idea of what they are or sort them by categories!
-          </p>
-            <p class="android-link mdl-typography--font-light">* Based on survey of 13 Planners at the Urban Redevelopment Authority</p>
-            <div id="toolbar">
-              <a href="#" id="all" class="button active">All Factors</a>
-              <a href="#" id="year" class="button">Factors by Category</a>
-            </div>
-            <div id="vis"></div>
-        </div>
-
-        <div class="android-more-section">
-          <div class="android-section-title mdl-typography--display-1-color-contrast">It's your turn!</div>
-          <p class="mdl-typography--headline mdl-typography--font-thin">
-            Select the factors you are interested in, toggle their importance in the respective drop down menu and see the map come to life! The more intense the shade, the more well-served the area is, and hence the less risky for the elderly. See what you can find!
-          </p>
-          <p>
-            (Hint: Swipe the basemap control to beautify your map! The lighter the risk factor color you choose, the darker the basemap should be.)
-          </p>
-        </div>
-
-        <div class="android-screen-section2 mdl-typography--text-center">
-          <div class="android-section-title mdl-typography--display-1-color-contrast">Interactive Map</div>
-    </div>
-
-
-      <div class="mdl-grid">
-
-         <div class="mdl-cell mdl-cell--2-col">
-
-           <div class="sidebar">
-             <div id="sidedrawer-brand" class="mui--appbar-line-height">
-               <span class="mui--text-title">BASEMAP CONTROL</span>
-               <input id='range' class='range' type='range' min='0' max='1.0' step='any' />
-             </div>
-             <div class="mui-divider"></div>
-             <div id="sidedrawer-brand" class="mui--appbar-line-height">
-               <span class="mui--text-title">RISKSCAPE FACTORS</span>
-             </div>
-             <div class="mui-divider"></div>
-
-             <div class="selected"><h4><b>You Selected</b></h4>
-                 <div class='listfactors'></div>
-             </div>
-
-             <div class="factors">
-               <h4 class="toSelect"><b>Select Factors</b></h4>
-               <div class="checkbox checkboxes">
-                   <input type="checkbox" class="checkbox" id="all2" value="">
-                   <label for="all2">All</label>
-                   <br>
-                   <input type="checkbox" class="checkbox" id="clinic" value="">
-                   <label for="clinic">Subsidized Clinics</label>
-                   <select id="impt" class="imptcss">
-                       <option value="lowimpt">Low</option>
-                       <option value="midimpt">Mid</option>
-                       <option value="highimpt">High</option>
-                   </select>
-                   <br>
-                   <input type="checkbox" class="checkbox" id="libr" value="">
-                   <label for="libr">Library</label>
-                   <select id="impt2" class="imptcss">
-                       <option value="lowimpt">Low</option>
-                       <option value="midimpt">Mid</option>
-                       <option value="highimpt">High</option>
-                   </select>
-                   <br>
-                   <input type="checkbox"  class="checkbox" id="eldc" value="">
-                   <label for="eldc">Eldercare Services</label>
-                   <select id="impt3" class="imptcss">
-                       <option value="lowimpt">Low</option>
-                       <option value="midimpt">Mid</option>
-                       <option value="highimpt">High</option>
-                   </select>
-                 </div>
-               </div>
-             <br>
-             <div class="mui-divider"></div>
-
-             <div class="factors">
-               <h4 class="toSelect"><b>Future Expansion:</b></h4>
-               <div class="checkbox checkboxes">
-                   <input type="checkbox" class="checkbox" id="other" value="" onclick="return false;">
-                   <label for="other">Police Establishments</label>
-                   <br>
-                   <input type="checkbox" class="checkbox" id="other" value="" onclick="return false;">
-                   <label for="other">Healthier Eateries</label>
-                   <br>
-                   <input type="checkbox" class="checkbox" id="other" value="" onclick="return false;">
-                   <label for="other">Parks</label>
-                   <br>
-                   <input type="checkbox"  class="checkbox" id="other" value="" onclick="return false;">
-                   <label for="other">Supermarkets</label>
-                   </select>
-                 </div>
-               </div>
-
-             <div class="reset">
-               <br>
-               <div class='map-overlay top'>
-                  <div class='map-overlay-inner'>
-                      <fieldset>
-                          <label>Choose a color (Optional)</label>
-                          <div id='swatches'></div>
-                      </fieldset>
-                  </div>
+        <main class="mdl-layout__content">
+            <div class="mdl-grid portfolio-max-width">
+                <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                    <div class="mdl-card__media">
+                      <a href="https://dorcas25sg.github.io/Silkroad/" target="_blank">
+                        <img class="article-image" src=" images/example-work01.jpg" border="0" alt="Live Site">
+                      </a>
+                    </div>
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">Interactive Map: The Ancient Silk Road</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        Using R, we scraped archeological data from <a href="http://digitalcollections.library.yale.edu/YaleSilkRoad/search.dl?q=Search+this+collection&qcx=1034.1&qqid=52950&qs=1" target="_blank">Yale Silk Road Database</a> and processed the <a href="https://www.arcgis.com/home/item.html?id=6ee51d446e21407b97a3e3ea4b8aeae2" target="_blank">routes</a> in ArcGIS. We then batch geocoded the points and vizualized spatially using Javascript. Check out the interactive map live by click on the image above!
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="https://dorcas25sg.github.io/Silkroad/" target="_blank">Live Site</a>
+                    </div>
                 </div>
+                <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                    <div class="mdl-card__media">
+                      <a href="https://dorcas25sg.github.io/dengue/" target="_blank">
+                        <img class="article-image" src=" images/example-work07.jpg" border="0" alt="Live Site">
+                      </a>
+                    </div>
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">Story Map Application: Dengue in Singapore </h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                      A story map tells a story through several slides, each slide combining text and data. The user is able to move forward and backwards through the slides by clicking on next and previous buttons. This framework could be exceptionally useful in communicating ideas/stories in a linear sequence.
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="https://dorcas25sg.github.io/dengue/" target="_blank">Live Site</a>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                    <div class="mdl-card__media">
+                      <a href="https://github.com/dorcas25sg/jsfinal" target="_blank">
+                        <img class="article-image" src=" images/example-work02.jpg" border="0" alt="Source Code">
+                      </a>
+                    </div>
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">Interactive Map + Animation: Singapore's Elderly Riskscape</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                      Using D3.js, Carto, Leaflet and more, this site tells a narrative of Singapore's aging population through interactie population pyramids, bubble charts and toggle-able maps. The live site is still a work in progress. In the meantime, download the files and host it on your own local host to see the magic!
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="https://github.com/dorcas25sg/jsfinal">Source Code</a>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                    <div class="mdl-card__media">
+                        <img class="article-image" src=" images/example-work03.jpg" border="0" alt="">
+                    </div>
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">Web Scraping: Home Prices at Rittenhouse Square, Philadelphia</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        My first attempt at Web-Scraping! Web-Scraping is exceptionally useful if you want to get large amount of data that's available online automatically and if there isn't an API available to access the information. Using R, we can web-scrap the Philadelphia Property Database and calculate the price per square foot of condominiums on Rittenhouse Square.
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="portfolio-example04.html">Read more</a>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                    <div class="mdl-card__media">
+                        <img class="article-image" src=" images/example-work04.jpg" border="0" alt="">
+                    </div>
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">Geospatial Software Design: Index of Isolation in Belfast</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        Using Python, we are able to code our own tools in ArcGIS! This tool assists in the understanding of segregation as it calculates the Isolation Index and combines multiple steps within itself: buffers, intersections, spatial joins, processing attribute table data. I've put the script up so you could even try it for yourself on your copy of ArcGIS!
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="portfolio-example05.html">Read more</a>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                    <div class="mdl-card__media">
+                        <img class="article-image" src=" images/example-work08.jpg" border="0" alt="">
+                    </div>
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">Predictive Modelling: Bike Share in Seattle</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        Today, Seattle's Proto Bike Share is no longer in operation. One of its serious issues was in rebalancing bikes between stations with insufficient bikes and those with riders waiting for an empty slot to park their bike. In this study, my teammate, Meiqing, and I proposed a possible app (not built) to help in the rebalancing process through predictive modelling to guide and plan the rebalancing process.
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="https://youtu.be/X4gpoTnNFIc" target="_blank">Watch Video</a>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                    <div class="mdl-card__media">
+                        <img class="article-image" src=" images/example-work05.jpg" border="0" alt="">
+                    </div>
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">Animated Choropleth Map with ggplot2</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        I cleaned and <b>spatial joined</b> Philadelphia crime incidents to census tracts in <b>R</b> (>2million records of crime was too large to be processed in ArcGIS), and created an animated choropleth map that displays the density of crimes across Philadelphia's Census tracts, year-by-year from 2009 to 2016 with <b>ggplot2</b> in <b>R</b>.
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" id="show-dialog">See Animation</a>
+                            <dialog class="mdl-dialog">
+                                <img src=" images/moving2.gif" border="0" alt="" width="680" height="600">
+                              <div class="mdl-dialog__actions">
+                                <button type="button" class="mdl-button close">Close</button>
+                              </div>
+                            </dialog>
 
-               <button class="mui-btn mui-btn--primary" id="submit">SUBMIT</button>
-               <button class="mui-btn mui-btn--primary" id="restart">RESTART</button>
-             </div>
+                            <script>
+                            var dialog = document.querySelector('dialog');
+                            var showDialogButton = document.querySelector('#show-dialog');
+                            if (! dialog.showModal) {
+                              dialogPolyfill.registerDialog(dialog);
+                            }
+                            showDialogButton.addEventListener('click', function() {
+                              dialog.showModal();
+                            });
+                            dialog.querySelector('.close').addEventListener('click', function() {
+                              dialog.close();
+                            });
+                            </script>
 
-           </div>
-
-
-         </div>
-
-         <div class="mdl-cell mdl-cell--10-col">
-           <div class="map" id="map">Hello there! </div>
-         </div>
-
-      </div>
-
-
-  </div>
-
-      <a href="#top" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Back to Top <i class="material-icons">expand_less</i></a>
-
-    <!-- Javascript Imports -->
-    <script src="js/jquery-2.2.0.js"></script>
-    <script src="js/underscore.js"></script>
-    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.2.3/leaflet.draw.js"></script>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                    <div class="mdl-card__media">
+                        <img class="article-image" src=" images/example-work06.jpg" border="0" alt="">
+                    </div>
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">SQL & GIS: Distribution of fatal vehicle crashes in Philadelphia</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        Using the last 10 years of data from the Fatality Analysis Reporting System (FARS) database and Philadelphia's road network, I investigated the geospatial distribution of fatal vehicle crashes in Philadelphia .
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="portfolio-example08.html">Read more</a>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                    <div class="mdl-card__media">
+                        <img class="article-image" src=" images/example-work09.jpg" border="0" alt="">
+                    </div>
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">App Development: Location Search and Routing Capabilities</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        Still a work in progress, combining <a href="https://rstudio.github.io/leaflet/" target="_blank">Leaflet</a>, <a href="https://mapzen.com/" target="_blank">Mapzen API</a> and <a href="https://shiny.rstudio.com/" target="_blank">Shiny</a> allows us to develop an app with location search and download capabilities. I am currently developing routing capabilities. Check back soon for more! Drop me a message if you'd like the R code thus far.
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="https://dory.shinyapps.io/leaflet-app/" target="_blank">Live Site</a>
+                    </div>
+                </div>
+            </div>
+            <footer class="mdl-mini-footer">
+                <div class="mdl-mini-footer__left-section">
+                  <a href="mailto:dorcas25sg@gmail.com?Subject=Portfolio%20Enquiry" target="_blank">
+                    <div class="mdl-logo">Contact Dorcas</div>
+                  </a>
+                </div>
+                <div class="mdl-mini-footer__right-section">
+                    <ul class="mdl-mini-footer__link-list">
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">Privacy & Terms</a></li>
+                    </ul>
+                </div>
+            </footer>
+        </main>
+    </div>
     <script src="http://code.getmdl.io/1.3.0/material.min.js"></script>
-    <script src="js/dialog.js"></script>
-    <script src="js/d3.js"></script>
-    <script src="js/tooltip.js"></script>
-    <script src="js/bubble_chart.js"></script>
-    <script src="js/barchart2.js"></script>
-    <script src="js/map.js"></script>
+</body>
 
-
-  </body>
 </html>
